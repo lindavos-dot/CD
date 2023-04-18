@@ -1,5 +1,8 @@
-import main
+#imports
+import main 
 
-def test_power():
-    assert main.power(2,2) == 4
-    assert main.power(2,3) == 8
+def test_index():
+    assert main.index() == 'Hello, world!'
+    
+def test_cow():
+    assert main.cow() == 'MOoooOo!'
