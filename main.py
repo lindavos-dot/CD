@@ -10,6 +10,6 @@ app = Flask(__name__)
 def index():
     return 'Hello, world!'
 
-@app.route('/cow')
-def cow():
-    return 'MOoooOo!'
+@app.route('/winc')
+def winc():
+    return 'Whoohooo, laatste opdracht van winc!'
