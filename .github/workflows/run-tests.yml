@@ -29,5 +29,5 @@ jobs:
             key: ${{ secrets.SSH_PRIVATE_KEY }} # hier moet de SSH private key in komen/ aanmaken op droplet
             port: ${{ secrets.SSH_PORT }} # veranderen of laten staan op 22?
             script: |
-
+                echo "Hello, World!"
               # nog uitzoeken
