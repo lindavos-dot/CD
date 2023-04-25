@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: run-tests # alleen bij succes
     steps:
-      — name: Login on droplet and update main.py
+      - name: Login on droplet and update main.py
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.DROLET_IP }} # host is in dit geval het IP adres
