@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.DIGITAL_OCEAN_USER }} # The default username is root
           key: ${{ secrets.SSH_PRIVATE_KEY }} # hier moet de SSH private key in komen/ aanmaken op droplet
           port: ${{ secrets.SSH_PORT }} # veranderen of laten staan op 22?
-          run: echo "Hello, World!"        
+          echo "Hello, World!"        
           #script: |
 
               # nog uitzoeken 
