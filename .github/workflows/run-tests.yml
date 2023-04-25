@@ -22,12 +22,13 @@ jobs:
     needs: run-tests # alleen bij succes
     steps:
       — name: Login on droplet and update main.py
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.10
         with:
-            host: ${{ secrets.DROLET_IP }} # host is in dit geval het IP adres
-            username: ${{ secrets.DIGITAL_OCEAN_USER }} # The default username is root
-            key: ${{ secrets.SSH_PRIVATE_KEY }} # hier moet de SSH private key in komen/ aanmaken op droplet
-            port: ${{ secrets.SSH_PORT }} # veranderen of laten staan op 22?
-            script: |
-                echo "Hello, World!"
+          host: ${{ secrets.DROLET_IP }} # host is in dit geval het IP adres
+          username: ${{ secrets.DIGITAL_OCEAN_USER }} # The default username is root
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # hier moet de SSH private key in komen/ aanmaken op droplet
+          port: ${{ secrets.SSH_PORT }} # veranderen of laten staan op 22?
+          script: |
+              echo "Hello, World!"
               # nog uitzoeken
+
