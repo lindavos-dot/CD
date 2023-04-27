@@ -32,7 +32,7 @@ jobs:
         username: ${{ secrets.DIGITAL_OCEAN_USER }}
         password: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        source: "~/main.py" # of alleen main.py omdat je al vanuit PS C:\Users\Linda Vos\Desktop\Deployment> werkt?
+        source: "C:\Users\Linda Vos\Desktop\Deployment\main.py" 
         target: "/home/farm"
 
 # appleboy/ssh-action@master voor het uitvoeren van commando's op afstand (stap 2)
