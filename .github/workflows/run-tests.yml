@@ -33,7 +33,7 @@ jobs:
         password: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         source: "c:/Users/Linda Vos/Desktop/Deployment/main.py" 
-        target: "/home/farm"
+        target: farm@${{ secrets.DROLET_IP }}:"/home/farm"
 
 # appleboy/ssh-action@master voor het uitvoeren van commando's op afstand (stap 2)
   deploy:
