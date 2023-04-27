@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-tests # alleen bij succes
     steps:
-    - uses: actions/checkout@v0.1.4
+    - uses: actions/checkout@master
     - name: copy file via ssh password
-      uses: appleboy/scp-action@v0.1.4
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.DROLET_IP }}
         username: ${{ secrets.DIGITAL_OCEAN_USER }}
