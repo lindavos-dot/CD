@@ -32,8 +32,8 @@ jobs:
         username: ${{ secrets.DIGITAL_OCEAN_USER }}
         password: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        source: "c:/Users/Linda Vos/Desktop/Deployment/main.py" 
-        target: farm@${{ secrets.DROLET_IP }}:"/home/farm"
+        source: "main.py" 
+        target: "/home/farm"
 
 # appleboy/ssh-action@master voor het uitvoeren van commando's op afstand (stap 2)
   deploy:
