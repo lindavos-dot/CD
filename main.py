@@ -13,3 +13,9 @@ def index():
 @app.route('/winc')
 def winc():
     return 'Whoohooo, laatste opdracht van winc!'
+
+# Aangepast nadat Github Actions/run-tests.yml groen is voor: run-tests, Deploy, Build
+
+@app.route('/hoera')
+def winc():
+    return 'Hoera, als je dit ziet dan werkt het!'
