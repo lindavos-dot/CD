@@ -1,8 +1,10 @@
-name: Run Tests #CI/CD
+# Test of de code juist is
+
+name: Run Tests #CI
 
 on: push
 jobs:
-  run-tests: #CI
+  run-tests: 
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
@@ -16,20 +18,36 @@ jobs:
       - name: Run tests
         run: pytest
 
+# appleboy/scp-action@master voor overbrengen van main.py naar Droplet (stap 1)
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: run-tests # alleen bij succes
+    steps:
+    - uses: actions/checkout@v0.1.4
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.DROLET_IP }}
+        username: ${{ secrets.DIGITAL_OCEAN_USER }}
+        password: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: "~/main.py" # of alleen main.py omdat je al vanuit PS C:\Users\Linda Vos\Desktop\Deployment> werkt?
+        target: "/home/farm"
+
+# appleboy/ssh-action@master voor het uitvoeren van commando's op afstand (stap 2)
   deploy:
     name: Deploy #CD
     runs-on: ubuntu-20.04
-    needs: run-tests # alleen bij succes
     steps:
       - name: Login on droplet and update main.py
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.DROLET_IP }} # host is in dit geval het IP adres
-          username: ${{ secrets.DIGITAL_OCEAN_USER }} # The default username is root
-          key: ${{ secrets.SSH_PRIVATE_KEY }} # hier moet de SSH private key in komen/ aanmaken op droplet
-          port: ${{ secrets.SSH_PORT }} # veranderen of laten staan op 22?
-          run: echo "Hello, World!"        
-          #script: |
-
-              # nog uitzoeken 
+          host: ${{ secrets.DROLET_IP }} 
+          username: ${{ secrets.DIGITAL_OCEAN_USER }} 
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          port: ${{ secrets.SSH_PORT }}       
+          script: |
+            cd /home/farm
+            sudo systemctl restart farm
 
