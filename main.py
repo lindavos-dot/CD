@@ -17,5 +17,5 @@ def winc():
 # Aangepast nadat Github Actions/run-tests.yml groen is voor: run-tests, Deploy, Build
 
 @app.route('/hoera')
-def winc():
+def hoera():
     return 'Hoera, als je dit ziet dan werkt het!'
