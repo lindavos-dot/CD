@@ -20,7 +20,7 @@ jobs:
 
 # appleboy/scp-action@master voor overbrengen van main.py naar Droplet (stap 1)
   build:
-    name: Build
+    name: Build #CD
     runs-on: ubuntu-latest
     needs: run-tests # alleen bij succes
     steps:
